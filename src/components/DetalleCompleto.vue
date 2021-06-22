@@ -65,6 +65,7 @@ import axios from 'axios';
             try{       
                 let data = await axios.get('http://localhost:8080/test/tb/zodiaco.json')
                 let zodiacos = data.data;
+                console.log(this.$route.query)
                 zodiacos.map( z => {
                   if(z.id == numero){
                     this.id = numero;

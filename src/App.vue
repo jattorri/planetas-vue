@@ -1,28 +1,44 @@
-<template>
+ <template>
   <div id="app" class="d-flex flex-column">
     <div class="align-self-center">
         <router-link class="Enlace" to="/">Home</router-link>
         <router-link class="mx-lg-2 Enlace" to="/signos">Agrupados por Elemento</router-link>
-        <select>
-          <option default disabled>-Seleccione un mes-</option>
-          <option value="1">Enero</option>
-          <option value="2">Febrero</option>
-          <option value="3">Marzo</option>
-          <option value="4">Abril</option>
-          <option value="5">Mayo</option>
-          <option value="6">Junio</option>
-          <option value="7">Julio</option>
-          <option value="8">Agosto</option>
-          <option value="9">Septiembre</option>
-          <option value="10">Octubre</option>
-          <option value="11">Noviembre</option>
-          <option value="12">Diciembre</option>
-        </select>
+            <b-nav-form>
+            <b-form-input
+              size="sm"
+              class="mr-sm-2"
+              placeholder="Search"
+              type="text"
+              v-model="nombre" >
+            </b-form-input >
+            <b-button size="sm" class="my-2 my-sm-0" type="submit" v-bind:to="`?nombre=${nombre}`">Search</b-button>
+          </b-nav-form>
+          <p>{{nombre}}</p>
     </div>
     <router-view />
   </div>
 </template>
 
+<script>
+
+export default {
+  name: "App",
+  components: {
+  },
+  data() {
+    return {
+      zodiacos: [],
+      nombre: ''
+    };
+  },
+ mounted(){
+    console.log('mounted')
+  },
+  methods:{
+
+  }
+};
+</script>
 <style scoped>
 .Enlace{
   color: grey;
